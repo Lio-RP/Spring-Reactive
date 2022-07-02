@@ -8,7 +8,6 @@ import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @DataMongoTest
@@ -42,6 +41,6 @@ public class UnitOfMeasureReactiveRepositoryTest {
 
         UnitOfMeasure fetchedUom = unitOfMeasureReactiveRepository.findByDescription("Each").block();
 
-        assertNotNull(fetchedUom.getId());
+        assertEquals("Each", fetchedUom.getDescription());
     }
 }
